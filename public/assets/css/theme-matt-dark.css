@@ -1,0 +1,136 @@
+@import url(theme-gitea-dark.css);
+
+:root {
+    /* General */
+    --color-body: #252525; /* Background for modals (and main page but not visible because of texture) */
+    --color-active: rgba(255, 255, 255, 0.2); /* For elements, such as tabs or buttons, that are 'active' */
+    --color-footer: rgba(14, 14, 14, 0.5);
+
+    /* Colours */
+    --color-primary: #7a7a7a; /* Hyperlinks and stuff */
+
+    --color-primary-dark-1: #858585;
+    --color-primary-dark-2: #909090;
+    --color-primary-dark-3: #989898;
+    --color-primary-dark-4: #acacac;
+    --color-primary-dark-5: #c8c8c8;
+    --color-primary-dark-6: #dbdbdb;
+    --color-primary-dark-7: #fafafa;
+
+    --color-primary-light-1: #404040;
+    --color-primary-light-2: #3a3a3a; /* Used for text on hover w.r.t. label buttons */
+    --color-primary-light-3: #333333;
+    --color-primary-light-4: #262626;
+    --color-primary-light-5: #1b1b1b;
+    --color-primary-light-6: #0e0e0e;
+    --color-primary-light-7: #04080c;
+
+    --color-primary-alpha-10: #7a7a7a19;
+    --color-primary-alpha-20: #7a7a7a33;
+    --color-primary-alpha-30: #7a7a7a4b;
+    --color-primary-alpha-40: #7a7a7a66;
+    --color-primary-alpha-50: #7a7a7a80;
+    --color-primary-alpha-60: #7a7a7a99;
+    --color-primary-alpha-70: #7a7a7ab3;
+    --color-primary-alpha-80: #7a7a7acc;
+    --color-primary-alpha-90: #7a7a7ae1;
+
+    --color-secondary: #383838; /* Borders */
+    --color-secondary-alpha-60: rgba(23, 23, 23, 0.6); /* Heatmap "no contributions" space */
+
+    /* Buttons */
+    --color-button: rgba(14, 14, 14, 0.5);
+    --color-hover: rgba(128, 128, 128, 0.5);
+
+    /* Label buttons (e.g. Number side of Unwatch button or Star button on repository) */
+    --color-light: rgba(255, 255, 255, 0.05); /* Background on hover */
+
+    /* Boxes (e.g. repo list on homepage) */
+    --color-box-header: rgba(255, 255, 255, 0.05); /* "Search code" and latest commit headers in file list on repos */
+    --color-box-body: rgba(255, 255, 255, 0.08);
+
+    /* Input boxes (e.g. Search repos... box on homepage) */
+    --color-input-background: rgba(0, 0, 0, 0.25);
+    --color-input-border: rgba(34, 36, 38, 0.15); /* <-- This is also used on buttons */
+
+    /* Navbar */
+    --color-nav-bg: rgba(14, 14, 14, 0.5);
+    --color-nav-hover-bg: #202020;
+    --color-secondary-nav-bg: rgba(255, 255, 255, 0.02);
+
+    /* Menus and paginators */
+    --color-menu: #111;
+
+    /* Labels */
+    --color-label-bg: #232323;
+    --color-label-hover-bg: var(--color-hover);
+    --color-label-text: var(--color-text);
+
+    /* Text colours */
+    --color-text: rgb(221, 221, 221); /* All normal text */
+    --color-text-light-2: rgb(150, 150, 150); /* Links on side-menus, e.g. any repo > Settings > Units dropdown menu links */
+    --color-text-light-1: rgb(200, 200, 200); /* Aforementionled links, on hover */
+
+    /* Tooltips (e.g. hovering over the 'Updated last month' text on a repository list) */
+    --color-tooltip-bg: var(--color-label-bg);
+    --color-tooltip-text: var(--color-label-text);
+
+    /* Code (stuff like code boxes and line numbers, not the actual scripts themselves) */
+    --color-code-bg: rgba(14, 14, 14, 0.5);
+
+    /* Timeline (on issues and PRs) */
+    --color-timeline: #222;
+
+    /* Fonts */
+    --fonts-regular: Inter;
+    --fonts-proportional: Inter;
+}
+
+/* Background image */
+body {
+    background: url(background.png);
+}
+
+/* Line numbers in code listings */
+.lines-num {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+/* Lock + avatar button on GPG labels */
+.ui .sha.label > .button {
+    background: rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Lighten up names in lists like:
+ *    - /explore/repos
+ *    - /[username]?tab=repositories
+ *    - /[username]?tab=stars
+ */
+div.flex-list .name {
+    color: var(--color-primary-dark-5) !important;
+}
+
+/* TIMELINE FIX
+ * Timeline items, such as comments, comment forms, and PR merge
+ * boxes, are styled as boxes with the --color-box-body variable,
+ * which is transparent.
+ *
+ * The vertical timeline 'strip' passes through these timeline items,
+ * and since they're transparent, the strip is visible through the boxes.
+ *
+ * This fix hard-codes the colours of these timeline items to be
+ * opaque, so that the timeline strip appears normally. */
+.timeline-item.comment .content .comment-header {
+    background: #0e0e0e !important;
+}
+.timeline-item.comment .content .comment-body {
+    background: #151515 !important;
+}
+.timeline-item.comment .content {
+    background: #000;
+}
+
+@font-face {
+    font-family: Inter;
+    src: url('Inter.ttf');
+}
