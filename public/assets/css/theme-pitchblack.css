@@ -930,7 +930,7 @@ img[src$="/img/matrix.svg"] {
 }
 
 ::selection, ::-moz-selection {
-  background: var(--color-grey);
+  background: url(background.png);
   color: var(--color-secondary)!important;
 }
 
